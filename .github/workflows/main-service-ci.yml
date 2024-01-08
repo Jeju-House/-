@@ -2,7 +2,7 @@ name: Main Service CI
 
 on:
   pull_request:
-    branches: [ "main" ]
+    branches: [ "develop" ]
 
 jobs:
   check-skip:

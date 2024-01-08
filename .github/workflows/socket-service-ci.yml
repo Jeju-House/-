@@ -2,7 +2,7 @@ name: Socket Service CI
 
 on:
   pull_request:
-    branches: [ "main" ]
+    branches: [ "develop" ]
 
 jobs:
   check-skip:
