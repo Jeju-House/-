@@ -1,3 +1,3 @@
 FROM openjdk:17-alpine
-COPY ./build/libs/MainService-0.0.1-SNAPSHOT.jar app.jar
+COPY ./build/libs/main-0.0.1-SNAPSHOT.jar
 ENTRYPOINT ["java", "-jar", "app.jar"]
