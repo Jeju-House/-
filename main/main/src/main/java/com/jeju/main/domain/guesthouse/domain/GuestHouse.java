@@ -1,18 +1,19 @@
 package com.jeju.main.domain.guesthouse.domain;
 
+
 import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
-@Table
+@Table(name="guest_house")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class Party {
+public class GuestHouse {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "party_id")
+    @Column(name = "guest_house_id")
     private Long id;
-
-    @ManyToOne
-    @JoinColumn(name="guest_house_id")
-    private GuestHouse guestHouse;
+    private String name;
+    @Enumerated(EnumType.STRING)
+    private Region region;
+    private String promotion;
 }
