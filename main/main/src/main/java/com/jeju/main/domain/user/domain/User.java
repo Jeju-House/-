@@ -1,6 +1,7 @@
 package com.jeju.main.domain.user.domain;
 
 import com.jeju.main.domain.guesthouse.domain.Party;
+import com.jeju.main.domain.guesthouse.domain.Review;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
@@ -22,4 +23,6 @@ public class User {
     @ManyToOne
     @JoinColumn(name = "user_id")
     private Party party;
+    @OneToOne
+    private Review review;
 }

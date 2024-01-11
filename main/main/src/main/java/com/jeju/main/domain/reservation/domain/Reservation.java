@@ -2,20 +2,14 @@ package com.jeju.main.domain.reservation.domain;
 
 import com.jeju.main.domain.guesthouse.domain.Room;
 import com.jeju.main.domain.user.domain.User;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+
 import java.time.LocalDateTime;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table
+@Table(name = "reservation")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Reservation {
     @Id
@@ -25,10 +19,9 @@ public class Reservation {
     private LocalDateTime reservationDate;
     private LocalDateTime StartDate;
     private LocalDateTime EndDate;
-    @OneToOne
-    @JoinColumn(name = "user_id")
+    @OneToMany(mappedBy = "reservation")
     private User user;
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "room_id")
     private Room room;
 }

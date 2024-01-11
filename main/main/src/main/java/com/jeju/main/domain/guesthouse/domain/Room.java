@@ -1,16 +1,14 @@
 package com.jeju.main.domain.guesthouse.domain;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import com.jeju.main.domain.reservation.domain.Reservation;
+import jakarta.persistence.*;
 import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table
@@ -27,4 +25,7 @@ public class Room {
     @ManyToOne
     @JoinColumn(name = "guest_house_id")
     private GuestHouse guestHouse;
+    @OneToMany(mappedBy = "room")
+    @Builder.Default
+    private List<Reservation> reservationList = new ArrayList<>();
 }

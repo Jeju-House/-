@@ -3,6 +3,8 @@ package com.jeju.main.domain.guesthouse.domain;
 
 import jakarta.persistence.*;
 import jakarta.servlet.http.Part;
+
+import java.util.ArrayList;
 import java.util.List;
 import lombok.*;
 
@@ -20,5 +22,5 @@ public class GuestHouse {
     private String promotion;
     @OneToMany
     @JoinColumn(name = "guest_house_id")
-    private List<Party> parties;
+    private List<Party> parties = new ArrayList<>();
 }

@@ -3,6 +3,7 @@ package com.jeju.main.domain.guesthouse.domain;
 import com.jeju.main.domain.user.domain.User;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import lombok.*;
 
@@ -21,6 +22,6 @@ public class Party {
     private GuestHouse guestHouse;
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id")
-    private List<User> users;
+    private List<User> users = new ArrayList<>();
 
 }
