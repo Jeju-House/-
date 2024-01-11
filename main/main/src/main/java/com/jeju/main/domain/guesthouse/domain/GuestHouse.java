@@ -20,7 +20,10 @@ public class GuestHouse {
     @Enumerated(EnumType.STRING)
     private Region region;
     private String promotion;
-    @OneToMany
-    @JoinColumn(name = "guest_house_id")
+    @OneToMany(mappedBy = "guest_house")
+    @Builder.Default
     private List<Party> parties = new ArrayList<>();
+    @OneToMany(mappedBy = "guest_house")
+    @Builder.Default
+    private List<Review> reviews = new ArrayList<>();
 }

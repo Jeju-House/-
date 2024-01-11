@@ -20,8 +20,8 @@ public class Party {
     @ManyToOne
     @JoinColumn(name="guest_house_id")
     private GuestHouse guestHouse;
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "user_id")
+    @OneToMany(mappedBy = "party")
+    @Builder.Default
     private List<User> users = new ArrayList<>();
 
 }
