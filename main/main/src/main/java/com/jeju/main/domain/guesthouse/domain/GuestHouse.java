@@ -2,6 +2,8 @@ package com.jeju.main.domain.guesthouse.domain;
 
 
 import jakarta.persistence.*;
+import jakarta.servlet.http.Part;
+import java.util.List;
 import lombok.*;
 
 @Entity
@@ -16,4 +18,7 @@ public class GuestHouse {
     @Enumerated(EnumType.STRING)
     private Region region;
     private String promotion;
+    @OneToMany
+    @JoinColumn(name = "guest_house_id")
+    private List<Party> parties;
 }
