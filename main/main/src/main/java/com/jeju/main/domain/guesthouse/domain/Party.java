@@ -9,6 +9,8 @@ import lombok.*;
 
 @Entity
 @Table
+@Builder
+@AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Party {
     @Id
