@@ -11,6 +11,8 @@ import lombok.*;
 @Entity
 @Table(name="guest_house")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Builder
+@AllArgsConstructor
 public class GuestHouse {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
