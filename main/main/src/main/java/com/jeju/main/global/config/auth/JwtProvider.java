@@ -1,6 +1,8 @@
 package com.jeju.main.global.config.auth;
 
 
+import io.jsonwebtoken.*;
+import io.jsonwebtoken.security.Keys;
 import lombok.Getter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
@@ -8,6 +10,8 @@ import org.springframework.stereotype.Component;
 import java.security.Key;
 import java.util.Base64;
 import java.util.Date;
+
+import static com.jeju.main.global.error.ErrorCode.*;
 
 @Getter
 @Component
