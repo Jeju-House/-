@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HealthCheckApiController {
     @RequestMapping("/")
-    public String MeetUpServer() {
+    public String Server() {
         return "제주도 게하~~~!";
     }
 }
