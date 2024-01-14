@@ -2,6 +2,7 @@ package com.jeju.main.global.config;
 
 import com.jeju.main.global.config.auth.JwtAuthenticationEntryPoint;
 import com.jeju.main.global.config.auth.JwtAuthenticationFilter;
+import com.jeju.main.global.config.auth.JwtProvider;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
