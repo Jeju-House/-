@@ -1,6 +1,7 @@
 package com.jeju.main.global.config.auth;
 
 
+import com.jeju.main.global.exception.UnauthorizedException;
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.security.Keys;
 import lombok.Getter;
