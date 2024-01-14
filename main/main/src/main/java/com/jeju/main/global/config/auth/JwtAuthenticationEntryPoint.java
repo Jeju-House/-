@@ -1,4 +1,4 @@
-package com.jeju.main.global.auth;
+package com.jeju.main.global.config.auth;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jeju.main.global.error.ErrorCode;

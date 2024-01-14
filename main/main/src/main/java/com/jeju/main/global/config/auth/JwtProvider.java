@@ -1,4 +1,4 @@
-package com.jeju.main.global.auth;
+package com.jeju.main.global.config.auth;
 
 
 import lombok.Getter;
