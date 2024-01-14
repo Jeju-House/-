@@ -1,5 +1,6 @@
 package com.jeju.main.global.config;
 
+import com.jeju.main.global.config.auth.ExceptionHandlerFilter;
 import com.jeju.main.global.config.auth.JwtAuthenticationEntryPoint;
 import com.jeju.main.global.config.auth.JwtAuthenticationFilter;
 import com.jeju.main.global.config.auth.JwtProvider;
