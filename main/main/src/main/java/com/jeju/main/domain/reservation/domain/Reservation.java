@@ -5,6 +5,9 @@ import com.jeju.main.domain.user.domain.User;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
@@ -20,7 +23,7 @@ public class Reservation {
     private LocalDateTime StartDate;
     private LocalDateTime EndDate;
     @OneToMany(mappedBy = "reservation")
-    private User user;
+    private List<User> users = new ArrayList<>();
     @ManyToOne
     @JoinColumn(name = "room_id")
     private Room room;

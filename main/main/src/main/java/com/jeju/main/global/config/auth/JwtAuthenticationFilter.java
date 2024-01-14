@@ -2,6 +2,7 @@ package com.jeju.main.global.config.auth;
 
 
 
+import com.jeju.main.global.exception.UnauthorizedException;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -13,6 +14,8 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
+
+import static com.jeju.main.global.error.ErrorCode.INVALID_ACCESS_TOKEN;
 
 
 @RequiredArgsConstructor
@@ -26,7 +29,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         final String accessToken = getAccessTokenFromHttpServletRequest(request);
         jwtProvider.validateAccessToken(accessToken);
         final Long userId = jwtProvider.getSubject(accessToken);
-        setAuthentication(request, userId);
+//        setAuthentication(request, userId);
         filterChain.doFilter(request, response);
     }
 
@@ -38,9 +41,9 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         throw new UnauthorizedException(INVALID_ACCESS_TOKEN);
     }
 
-    private void setAuthentication(HttpServletRequest request, Long userId) {
-        UserAuthentication authentication = new UserAuthentication(userId, null, null);
-        authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
-        SecurityContextHolder.getContext().setAuthentication(authentication);
-    }
+//    private void setAuthentication(HttpServletRequest request, Long userId) {
+//        UserAuthentication authentication = new UserAuthentication(userId, null, null);
+//        authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
+//        SecurityContextHolder.getContext().setAuthentication(authentication);
+//    }
 }
