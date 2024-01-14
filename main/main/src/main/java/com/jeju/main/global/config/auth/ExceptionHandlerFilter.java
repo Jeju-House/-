@@ -2,6 +2,7 @@ package com.jeju.main.global.config.auth;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jeju.main.global.error.dto.ErrorBaseResponse;
+import com.jeju.main.global.exception.InvalidValueException;
 import com.jeju.main.global.exception.UnauthorizedException;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
