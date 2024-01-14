@@ -2,6 +2,7 @@ package com.jeju.main.global.auth;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jeju.main.global.error.ErrorCode;
+import com.jeju.main.global.error.dto.ErrorBaseResponse;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.http.MediaType;
