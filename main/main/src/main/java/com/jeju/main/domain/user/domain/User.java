@@ -14,7 +14,6 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
     private Long id;
-
     private String account;
     private String password;
     @Enumerated(EnumType.STRING)
