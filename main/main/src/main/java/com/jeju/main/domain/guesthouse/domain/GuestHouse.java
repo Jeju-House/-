@@ -2,14 +2,13 @@ package com.jeju.main.domain.guesthouse.domain;
 
 
 import jakarta.persistence.*;
-import jakarta.servlet.http.Part;
 
 import java.util.ArrayList;
 import java.util.List;
 import lombok.*;
 
 @Entity
-@Table(name="guest_house")
+@Table(name = "guest_house")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Builder
 @Data
@@ -23,11 +22,14 @@ public class GuestHouse {
     @Enumerated(EnumType.STRING)
     private Region region;
     private String promotion;
-    @OneToMany(mappedBy = "guest_house")
+
+    @OneToMany(mappedBy = "guestHouse")  // Update the mappedBy attribute
     @Builder.Default
     private List<Party> parties = new ArrayList<>();
-    @OneToMany(mappedBy = "guest_house")
+
+    @OneToMany(mappedBy = "guestHouse")  // Update the mappedBy attribute
     @Builder.Default
     private List<Review> reviews = new ArrayList<>();
 
 }
+
