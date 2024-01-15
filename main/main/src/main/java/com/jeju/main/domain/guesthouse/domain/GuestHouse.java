@@ -12,6 +12,7 @@ import lombok.*;
 @Table(name="guest_house")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Builder
+@Data
 @AllArgsConstructor
 public class GuestHouse {
     @Id
@@ -28,4 +29,5 @@ public class GuestHouse {
     @OneToMany(mappedBy = "guest_house")
     @Builder.Default
     private List<Review> reviews = new ArrayList<>();
+
 }
