@@ -20,7 +20,7 @@ public class Party {
     private String party_name;
     private LocalDateTime party_date;
     @ManyToOne
-    @JoinColumn(name="guest_house_id")
+    @JoinColumn(name="guestHouse_id")
     private GuestHouse guestHouse;
     @OneToMany(mappedBy = "party")
     @Builder.Default

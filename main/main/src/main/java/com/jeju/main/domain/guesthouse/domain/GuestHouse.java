@@ -8,7 +8,7 @@ import java.util.List;
 import lombok.*;
 
 @Entity
-@Table(name = "guest_house")
+@Table(name = "guestHouse")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Builder
 @Data
@@ -16,7 +16,7 @@ import lombok.*;
 public class GuestHouse {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "guest_house_id")
+    @Column(name = "guestHouse_id")
     private Long id;
     private String name;
     @Enumerated(EnumType.STRING)

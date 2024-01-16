@@ -16,6 +16,6 @@ public class Review {
     @OneToOne
     private User user;
     @ManyToOne
-    @JoinColumn(name = "guest_house_id")
+    @JoinColumn(name = "guestHouse_id")
     private GuestHouse guestHouse;
 }
