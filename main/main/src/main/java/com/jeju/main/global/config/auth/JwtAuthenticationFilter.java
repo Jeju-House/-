@@ -32,7 +32,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         jwtProvider.validateAccessToken(accessToken);
         final Long userId = jwtProvider.getSubject(accessToken);
 
-        setAuthentication(request, userId);
+//        setAuthentication(request, userId);
         filterChain.doFilter(request, response);
     }
 
@@ -45,9 +45,9 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     }
 
 
-    private void setAuthentication(HttpServletRequest request, Long userId) {
-        UserAuthentication authentication = new UserAuthentication(userId, null, null);
-        authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
-        SecurityContextHolder.getContext().setAuthentication(authentication);
-    }
+//    private void setAuthentication(HttpServletRequest request, Long userId) {
+//        UserAuthentication authentication = new UserAuthentication(userId, null, null);
+//        authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
+//        SecurityContextHolder.getContext().setAuthentication(authentication);
+//    }
 }
