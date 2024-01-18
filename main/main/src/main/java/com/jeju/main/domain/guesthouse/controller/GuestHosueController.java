@@ -5,6 +5,7 @@ import com.jeju.main.domain.guesthouse.dto.request.GuestHouseRequestDto;
 import com.jeju.main.domain.guesthouse.dto.response.GuestHouseResponseDto;
 import com.jeju.main.domain.guesthouse.service.GuestHouseService;
 import com.jeju.main.global.common.SuccessResponse;
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,4 +28,8 @@ public class GuestHosueController {
         guestHouseService.addGuestHouse(guestHouseResponseDto);
         return SuccessResponse.created(null);
     }
+    /*@GetMapping("")
+    public ResponseEntity<SuccessResponse<?>> searchGuestHouses(){
+        List<GuestHouseResponseDto> guestHouseResponseDtos = guestHouseService.getGuestHouse()
+    }*/
 }
