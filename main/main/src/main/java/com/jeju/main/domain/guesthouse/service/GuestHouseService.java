@@ -25,11 +25,6 @@ public class GuestHouseService {
     public GuestHouseResponseDto getGuestHouse(Long id) {
         GuestHouse guestHouse = guestHouseRepository.findById(id).orElse(null);
 
-        return GuestHouseResponseDto.builder()
-                .name(guestHouse.getName())
-                .region(guestHouse.getRegion())
-                .promotion(guestHouse.getPromotion())
-                .reviews(guestHouse.getReviews())
-                .parties(guestHouse.getParties()).build();
+        return GuestHouseResponseDto.of(guestHouse);
     }
 }
