@@ -7,11 +7,12 @@ import java.util.ArrayList;
 import java.util.List;
 import lombok.*;
 
-@Entity
-@Table(name = "party")
-@Builder
-@AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@AllArgsConstructor
+@Builder
+@Getter
+@Table(name = "party")
+@Entity
 public class Party {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,8 +23,8 @@ public class Party {
     @ManyToOne
     @JoinColumn(name="guestHouse_id")
     private GuestHouse guestHouse;
-    @OneToMany(mappedBy = "party")
-    @Builder.Default
-    private List<User> users = new ArrayList<>();
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 
 }

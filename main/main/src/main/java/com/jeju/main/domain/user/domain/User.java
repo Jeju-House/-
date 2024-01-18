@@ -4,12 +4,17 @@ import com.jeju.main.domain.guesthouse.domain.Party;
 import com.jeju.main.domain.guesthouse.domain.Review;
 import com.jeju.main.domain.reservation.domain.Reservation;
 import jakarta.persistence.*;
-import lombok.AccessLevel;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-@Entity
-@Table(name = "user")
+import java.util.ArrayList;
+import java.util.List;
+
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@AllArgsConstructor
+@Builder
+@Getter
+@Table(name = "user")
+@Entity
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,12 +25,14 @@ public class User {
     @Enumerated(EnumType.STRING)
     private Role role;
     private String gender;
-    @ManyToOne
-    @JoinColumn(name = "party_id")
-    private Party party;
-    @ManyToOne
-    @JoinColumn(name = "reservation_id")
-    private Reservation reservation;
-    @OneToOne
-    private Review review;
+    @OneToMany(mappedBy = "user")
+    @Builder.Default
+    private List<Party> partyList = new ArrayList<>();
+
+    @OneToMany(mappedBy = "user")
+    @Builder.Default
+    private List<Reservation> reservationList = new ArrayList<>();
+    @OneToMany(mappedBy = "user")
+    @Builder.Default
+    private List<Review> reviewList = new ArrayList<>();
 }

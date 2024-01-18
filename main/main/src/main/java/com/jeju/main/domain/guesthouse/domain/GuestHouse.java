@@ -7,12 +7,12 @@ import java.util.ArrayList;
 import java.util.List;
 import lombok.*;
 
-@Entity
-@Table(name = "guestHouse")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@Builder
-@Data
 @AllArgsConstructor
+@Builder
+@Getter
+@Table(name = "guestHouse")
+@Entity
 public class GuestHouse {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

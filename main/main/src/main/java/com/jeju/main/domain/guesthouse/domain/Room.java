@@ -2,21 +2,17 @@ package com.jeju.main.domain.guesthouse.domain;
 
 import com.jeju.main.domain.reservation.domain.Reservation;
 import jakarta.persistence.*;
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity
-@Table
-@Builder
-@AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@Data
+@AllArgsConstructor
+@Builder
+@Getter
+@Table(name = "room")
+@Entity
 public class Room {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
