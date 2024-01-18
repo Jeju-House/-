@@ -1,6 +1,7 @@
 package com.jeju.main.domain.guesthouse.controller;
 
 import com.jeju.main.domain.guesthouse.domain.GuestHouse;
+import com.jeju.main.domain.guesthouse.domain.Region;
 import com.jeju.main.domain.guesthouse.dto.request.GuestHouseRequestDto;
 import com.jeju.main.domain.guesthouse.dto.response.GuestHouseResponseDto;
 import com.jeju.main.domain.guesthouse.service.GuestHouseService;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RequiredArgsConstructor
@@ -28,8 +30,10 @@ public class GuestHosueController {
         guestHouseService.addGuestHouse(guestHouseResponseDto);
         return SuccessResponse.created(null);
     }
-    /*@GetMapping("")
-    public ResponseEntity<SuccessResponse<?>> searchGuestHouses(){
-        List<GuestHouseResponseDto> guestHouseResponseDtos = guestHouseService.getGuestHouse()
-    }*/
+    @GetMapping("")
+    public ResponseEntity<SuccessResponse<?>> searchByRegionGuestHouses(@RequestParam String region){
+        List<GuestHouseResponseDto> guestHouseResponseDtos = guestHouseService.getByRegionGuestHouses(region);
+
+        return SuccessResponse.ok(guestHouseResponseDtos);
+    }
 }
