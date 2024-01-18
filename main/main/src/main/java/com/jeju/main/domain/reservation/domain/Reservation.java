@@ -8,12 +8,14 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-import lombok.AccessLevel;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-@Entity
-@Table(name = "reservation")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@AllArgsConstructor
+@Builder
+@Getter
+@Table(name = "reservation")
+@Entity
 public class Reservation {
     @Id
     @Column(name = "reservation_id")
@@ -22,8 +24,9 @@ public class Reservation {
     private LocalDateTime reservationDate;
     private LocalDateTime StartDate;
     private LocalDateTime EndDate;
-    @OneToMany(mappedBy = "reservation")
-    private List<User> users = new ArrayList<>();
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
     @ManyToOne
     @JoinColumn(name = "room_id")
     private Room room;
