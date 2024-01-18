@@ -3,8 +3,9 @@ package com.jeju.main.domain.guesthouse.service;
 import com.jeju.main.domain.guesthouse.domain.GuestHouse;
 
 import com.jeju.main.domain.guesthouse.dto.response.GuestHouseResponseDto;
+import com.jeju.main.domain.guesthouse.dto.response.GuestHousesResponseDto;
 import com.jeju.main.domain.guesthouse.repository.GuestHouseRepository;
-import com.jeju.main.domain.guesthouse.dto.request.GuestHouseRequestDto;
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -25,11 +26,12 @@ public class GuestHouseService {
     public GuestHouseResponseDto getGuestHouse(Long id) {
         GuestHouse guestHouse = guestHouseRepository.findById(id).orElse(null);
 
-        return GuestHouseResponseDto.builder()
-                .name(guestHouse.getName())
-                .region(guestHouse.getRegion())
-                .promotion(guestHouse.getPromotion())
-                .reviews(guestHouse.getReviews())
-                .parties(guestHouse.getParties()).build();
+        return GuestHouseResponseDto.of(guestHouse);
+    }
+
+    public List<GuestHouseResponseDto> getByRegionGuestHouses(String region) {
+        List<GuestHouse> guestHouses = guestHouseRepository.findByRegionDescription(region);
+
+        return GuestHousesResponseDto.mapToResponseDtoList(guestHouses);
     }
 }
