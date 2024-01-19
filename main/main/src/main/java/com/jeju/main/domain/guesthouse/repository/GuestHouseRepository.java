@@ -7,5 +7,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface GuestHouseRepository extends JpaRepository<GuestHouse,Long> {
-    List<GuestHouse> findByRegionDescription(String regionDescription);
+    List<GuestHouse> findByRegion(String region);
 }

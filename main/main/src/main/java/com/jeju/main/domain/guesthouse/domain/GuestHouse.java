@@ -22,7 +22,6 @@ public class GuestHouse {
     @Enumerated(EnumType.STRING)
     private Region region;
     private String promotion;
-
     @OneToMany(mappedBy = "guestHouse")  // Update the mappedBy attribute
     @Builder.Default
     private List<Party> parties = new ArrayList<>();
