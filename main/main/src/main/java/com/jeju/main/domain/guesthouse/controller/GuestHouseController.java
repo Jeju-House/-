@@ -26,7 +26,7 @@ import org.springframework.web.multipart.MultipartFile;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/guesthouse")
-@PropertySource("classpath:/Users/parkjinseok/project/-/main/main/src/main/resources/application.yml")
+@PropertySource("classpath:application.yml")
 public class GuestHouseController {
     @Autowired
     private final GuestHouseService guestHouseService;
