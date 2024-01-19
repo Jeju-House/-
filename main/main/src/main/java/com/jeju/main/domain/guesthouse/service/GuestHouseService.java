@@ -30,7 +30,7 @@ public class GuestHouseService {
     }
 
     public List<GuestHouseResponseDto> getByRegionGuestHouses(String region) {
-        List<GuestHouse> guestHouses = guestHouseRepository.findByRegionDescription(region);
+        List<GuestHouse> guestHouses = guestHouseRepository.findByRegion(region);
 
         return GuestHousesResponseDto.mapToResponseDtoList(guestHouses);
     }
