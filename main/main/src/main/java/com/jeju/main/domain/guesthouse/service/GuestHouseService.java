@@ -13,11 +13,12 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class GuestHouseService {
     private final GuestHouseRepository guestHouseRepository;
-    public void addGuestHouse(GuestHouseResponseDto resource) {
+    public void addGuestHouse(GuestHouseResponseDto resource,String url) {
         GuestHouse guestHouse = GuestHouse.builder()
                 .name(resource.getName())
                 .region(resource.getRegion())
                 .promotion(resource.getPromotion())
+                .image(url)
                 .reviews(resource.getReviews())
                 .parties(resource.getParties()).build();
 
