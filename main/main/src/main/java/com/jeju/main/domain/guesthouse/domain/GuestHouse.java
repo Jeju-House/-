@@ -21,6 +21,7 @@ public class GuestHouse {
     private String name;
     @Enumerated(EnumType.STRING)
     private Region region;
+    private String image;
     private String promotion;
     @OneToMany(mappedBy = "guestHouse")  // Update the mappedBy attribute
     @Builder.Default
