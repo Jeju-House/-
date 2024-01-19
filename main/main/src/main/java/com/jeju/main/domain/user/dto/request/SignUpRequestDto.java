@@ -5,7 +5,6 @@ import lombok.Getter;
 
 @Getter
 public class SignUpRequestDto {
-    private Long id;
     private String account;
     private String password;
     private Role role;

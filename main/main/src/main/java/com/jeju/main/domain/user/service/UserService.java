@@ -25,14 +25,14 @@ public class UserService {
 
     private final UserRepository userRepository;
     public SignInResponseDto signIn(Long userId){
-        User user = findUser(userId);
+        User user = findUserByUserId(userId);
         Boolean isFirstLogin = Objects.isNull(user.getRole()) ? Boolean.TRUE : Boolean.FALSE;
         TokenInfo tokenInfo = issueAccessTokenAndRefreshToken(user);
         updateRefreshToken(tokenInfo.getRefreshToken(), user);
         return SignInResponseDto.of(user, tokenInfo, isFirstLogin);
     }
     public SignUpResponseDto signUp(SignUpRequestDto signUpRequestDto){
-        User user = User.createUser(signUpRequestDto.getId(),signUpRequestDto.getAccount(),signUpRequestDto.getGender(),signUpRequestDto.getRole());
+        User user = User.createUser(signUpRequestDto.getAccount(),signUpRequestDto.getGender(),signUpRequestDto.getRole());
         saveUser(user);
         return SignUpResponseDto.of(user);
     }
@@ -46,7 +46,7 @@ public class UserService {
         user.updateRefreshToken(refreshToken);
         refreshTokenRepository.save(createRefreshToken(user.getId(), refreshToken));
     }
-    private User findUser(Long userId) {
+    private User findUserByUserId(Long userId) {
         return userRepository.findById(userId)
                 .orElseThrow(() -> new EntityNotFoundException(USER_NOT_FOUND));
     }
