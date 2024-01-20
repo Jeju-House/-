@@ -23,7 +23,7 @@ public class SpringConfig {
     private final JwtAuthenticationEntryPoint jwtAuthenticationEntryPoint;
     private final CorsConfig corsConfig;
     private final JwtProvider jwtProvider;
-    private static final String[] whiteList = {"/"};
+    private static final String[] whiteList = {"/", "/api/**"};
 
     @Bean
     public WebSecurityCustomizer webSecurityCustomizer() {

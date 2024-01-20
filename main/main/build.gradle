@@ -43,8 +43,13 @@ dependencies {
 	//db
 	runtimeOnly 'com.mysql:mysql-connector-j'
 
+
+	// redis
+	implementation 'org.springframework.boot:spring-boot-starter-data-redis:2.3.1.RELEASE'
+
 	//aws s3
 	implementation 'org.springframework.cloud:spring-cloud-starter-aws:2.2.6.RELEASE'
+
 }
 
 tasks.named('test') {

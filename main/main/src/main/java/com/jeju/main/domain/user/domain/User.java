@@ -3,6 +3,7 @@ package com.jeju.main.domain.user.domain;
 import com.jeju.main.domain.guesthouse.domain.Party;
 import com.jeju.main.domain.guesthouse.domain.Review;
 import com.jeju.main.domain.reservation.domain.Reservation;
+import com.jeju.main.domain.user.auth.UserInfo;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -25,6 +26,7 @@ public class User {
     @Enumerated(EnumType.STRING)
     private Role role;
     private String gender;
+    private String refreshToken;
     @OneToMany(mappedBy = "user")
     @Builder.Default
     private List<Party> partyList = new ArrayList<>();
@@ -35,4 +37,15 @@ public class User {
     @OneToMany(mappedBy = "user")
     @Builder.Default
     private List<Review> reviewList = new ArrayList<>();
+
+    public static User createUser(String account, String gender, Role role) {
+        return User.builder()
+                .account(account)
+                .gender(gender)
+                .role(role)
+                .build();
+    }
+    public void updateRefreshToken(String refreshToken) {
+        this.refreshToken = refreshToken;
+    }
 }
