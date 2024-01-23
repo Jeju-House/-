@@ -32,7 +32,7 @@ public class UserService {
         return SignInResponseDto.of(user, tokenInfo, isFirstLogin);
     }
     public SignUpResponseDto signUp(SignUpRequestDto signUpRequestDto){
-        User user = User.createUser(signUpRequestDto.getAccount(),signUpRequestDto.getGender(),signUpRequestDto.getRole());
+        User user = User.createUser(signUpRequestDto.getAccount(),signUpRequestDto.getPassword(), signUpRequestDto.getGender(),signUpRequestDto.getRole());
         saveUser(user);
         return SignUpResponseDto.of(user);
     }
