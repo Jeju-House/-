@@ -1,5 +1,6 @@
-package com.jeju.main.domain.guesthouse.domain;
+package com.jeju.main.domain.room.domain;
 
+import com.jeju.main.domain.guesthouse.domain.GuestHouse;
 import com.jeju.main.domain.reservation.domain.Reservation;
 import jakarta.persistence.*;
 import lombok.*;
