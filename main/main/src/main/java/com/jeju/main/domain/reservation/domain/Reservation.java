@@ -1,12 +1,10 @@
 package com.jeju.main.domain.reservation.domain;
 
-import com.jeju.main.domain.guesthouse.domain.Room;
+import com.jeju.main.domain.room.domain.Room;
 import com.jeju.main.domain.user.domain.User;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 
 import lombok.*;
 

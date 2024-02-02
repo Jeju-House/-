@@ -29,10 +29,11 @@ public class UserService {
         Boolean isFirstLogin = Objects.isNull(user.getRole()) ? Boolean.TRUE : Boolean.FALSE;
         TokenInfo tokenInfo = issueAccessTokenAndRefreshToken(user);
         updateRefreshToken(tokenInfo.getRefreshToken(), user);
+        saveUser(user);
         return SignInResponseDto.of(user, tokenInfo, isFirstLogin);
     }
     public SignUpResponseDto signUp(SignUpRequestDto signUpRequestDto){
-        User user = User.createUser(signUpRequestDto.getAccount(),signUpRequestDto.getGender(),signUpRequestDto.getRole());
+        User user = User.createUser(signUpRequestDto.getAccount(),signUpRequestDto.getPassword(), signUpRequestDto.getGender(),signUpRequestDto.getRole());
         saveUser(user);
         return SignUpResponseDto.of(user);
     }

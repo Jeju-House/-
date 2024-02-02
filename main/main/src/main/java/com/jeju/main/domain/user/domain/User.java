@@ -38,9 +38,10 @@ public class User {
     @Builder.Default
     private List<Review> reviewList = new ArrayList<>();
 
-    public static User createUser(String account, String gender, Role role) {
+    public static User createUser(String account, String password, String gender, Role role) {
         return User.builder()
                 .account(account)
+                .password(password)
                 .gender(gender)
                 .role(role)
                 .build();

@@ -37,8 +37,8 @@ public enum ErrorCode {
      */
     ENTITY_NOT_FOUND(HttpStatus.NOT_FOUND, "엔티티를 찾을 수 없습니다."),
     USER_NOT_FOUND(HttpStatus.NOT_FOUND, "존재하지 않는 회원입니다."),
-
-
+    GUESTHOUSE_NOT_FOUND(HttpStatus.NOT_FOUND, "존재하지 않는 게스트하우스입니다."),
+    ROOM_NOT_FOUND(HttpStatus.NOT_FOUND, "존재하지 않는 방입니다."),
     /**
      * 405 Method Not Allowed
      */

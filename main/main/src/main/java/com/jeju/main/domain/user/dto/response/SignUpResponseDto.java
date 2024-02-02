@@ -17,6 +17,8 @@ public class SignUpResponseDto {
     public static SignUpResponseDto of(User user){
         return SignUpResponseDto.builder()
                 .id(user.getId())
+                .password(user.getPassword())
+                .role(user.getRole())
                 .account(user.getAccount())
                 .build();
     }
