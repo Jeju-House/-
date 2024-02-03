@@ -2,10 +2,15 @@ package com.jeju.main.domain.guesthouse.service;
 
 import com.jeju.main.domain.guesthouse.domain.GuestHouse;
 
+import com.jeju.main.domain.guesthouse.dto.response.GuestHouseDetailResponse;
 import com.jeju.main.domain.guesthouse.dto.response.GuestHouseResponseDto;
 import com.jeju.main.domain.guesthouse.dto.response.GuestHousesResponseDto;
 import com.jeju.main.domain.guesthouse.repository.GuestHouseRepository;
 import java.util.List;
+
+import com.jeju.main.domain.room.dto.response.RoomDetailResponse;
+import com.jeju.main.global.error.ErrorCode;
+import com.jeju.main.global.exception.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -24,6 +29,11 @@ public class GuestHouseService {
 
         guestHouseRepository.save(guestHouse);
     }
+    public GuestHouseDetailResponse getGuestHouseDetail(Long guestHouseId){
+        GuestHouse guestHouse = findGuestHouseById(guestHouseId);
+        List<RoomDetailResponse> roomDetailResponse = createRoomDetailResponse(guestHouse);
+        return GuestHouseDetailResponse.of(guestHouse,roomDetailResponse);
+    }
     public GuestHouseResponseDto getGuestHouse(Long id) {
         GuestHouse guestHouse = guestHouseRepository.findById(id).orElse(null);
 
@@ -34,5 +44,11 @@ public class GuestHouseService {
         List<GuestHouse> guestHouses = guestHouseRepository.findByRegion(region);
 
         return GuestHousesResponseDto.mapToResponseDtoList(guestHouses);
+    }
+    private List<RoomDetailResponse> createRoomDetailResponse(GuestHouse guestHouse){
+
+    }
+    private GuestHouse findGuestHouseById(Long id){
+        return guestHouseRepository.findById(id).orElseThrow(()->new EntityNotFoundException(ErrorCode.GUESTHOUSE_NOT_FOUND));
     }
 }
