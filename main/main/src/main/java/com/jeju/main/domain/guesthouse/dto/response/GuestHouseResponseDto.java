@@ -20,10 +20,7 @@ public class GuestHouseResponseDto {
     public static GuestHouseResponseDto of(GuestHouse guestHouse) {
         return GuestHouseResponseDto.builder()
                 .name(guestHouse.getName())
-                .reviews(guestHouse.getReviews())
                 .promotion(guestHouse.getPromotion())
-                .parties(guestHouse.getParties())
-                .reviews(guestHouse.getReviews())
                 .build();
     }
 

@@ -14,12 +14,12 @@ import lombok.*;
 @AllArgsConstructor
 @Builder
 @Getter
-@Table(name = "guestHouse")
+@Table(name = "guest_house")
 @Entity
 public class GuestHouse {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "guestHouse_id")
+    @Column(name = "guest_house_id")
     private Long id;
     private String name;
     @Enumerated(EnumType.STRING)

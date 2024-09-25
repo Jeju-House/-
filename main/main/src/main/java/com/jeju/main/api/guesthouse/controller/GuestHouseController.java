@@ -27,13 +27,9 @@ import org.springframework.web.multipart.MultipartFile;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/guesthouse")
-@PropertySource("classpath:application.yml")
 public class GuestHouseController {
-    @Value("${cloud.aws.s3.bucket}")
-    private String bucket;
 
     private final GuestHouseService guestHouseService;
-    private final AmazonS3Client amazonS3Client;
 
     @GetMapping("/{id}")
     public ResponseEntity<SuccessResponse<?>> searchGuestHouse(@PathVariable("id") Long guestHouseId){
@@ -47,7 +43,7 @@ public class GuestHouseController {
         return SuccessResponse.ok(guestHouseDetail);
     }
 
-    @PostMapping("")
+    @PostMapping
     public ResponseEntity<SuccessResponse<?>> createGuest(@RequestBody GuestHouseResponseDto guestHouseResponseDto,
                                                           MultipartFile file) throws IOException{
         guestHouseService.addGuestHouse(guestHouseResponseDto,file);

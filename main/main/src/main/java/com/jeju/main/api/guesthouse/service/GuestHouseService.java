@@ -29,9 +29,9 @@ import org.springframework.web.multipart.MultipartFile;
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
 public class GuestHouseService {
-    @Value("${cloud.aws.s3.bucket}")
-    private final String bucket;
-    private final AmazonS3Client amazonS3Client;
+//    @Value("${cloud.aws.s3.bucket}")
+//    private final String bucket;
+//    private final AmazonS3Client amazonS3Client;
     private final GuestHouseReader guestHouseReader;
     private final GuestHouseModifier guestHouseModifier;
     private final RoomReader roomReader;
@@ -39,14 +39,14 @@ public class GuestHouseService {
     @Transactional
     public void addGuestHouse(GuestHouseResponseDto resource, MultipartFile file) throws IOException {
         //리팩토링 필요!!
-        String image = file.getOriginalFilename();
-        String url= "https://" + bucket + "/test" +image;
-        ObjectMetadata metadata = new ObjectMetadata();
-        metadata.setContentType(file.getContentType());
-        metadata.setContentLength(file.getSize());
-        amazonS3Client.putObject(bucket,image,file.getInputStream(),metadata);
+//        String image = file.getOriginalFilename();
+//        String url= "https://" + bucket + "/test" +image;
+//        ObjectMetadata metadata = new ObjectMetadata();
+//        metadata.setContentType(file.getContentType());
+//        metadata.setContentLength(file.getSize());
+//        amazonS3Client.putObject(bucket,image,file.getInputStream(),metadata);
 
-        GuestHouse guestHouse = GuestHouse.createGuestHouse(resource, url);
+        GuestHouse guestHouse = GuestHouse.createGuestHouse(resource, "");
 
         guestHouseModifier.save(guestHouse);
     }
