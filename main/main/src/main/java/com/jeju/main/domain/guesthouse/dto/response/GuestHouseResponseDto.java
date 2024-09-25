@@ -15,8 +15,6 @@ public class GuestHouseResponseDto {
     private String name;
     private Region region;
     private String promotion;
-    private List<Party> parties = new ArrayList<>();
-    private List<Review> reviews = new ArrayList<>();
     public static GuestHouseResponseDto of(GuestHouse guestHouse) {
         return GuestHouseResponseDto.builder()
                 .name(guestHouse.getName())
