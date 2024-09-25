@@ -1,8 +1,8 @@
-package com.jeju.main.domain.room.controller;
+package com.jeju.main.api.room.controller;
 
 import com.jeju.main.domain.room.dto.request.RoomDetailRequest;
 import com.jeju.main.domain.room.dto.response.RoomDetailResponse;
-import com.jeju.main.domain.room.service.RoomService;
+import com.jeju.main.api.room.service.RoomService;
 import com.jeju.main.global.common.SuccessResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

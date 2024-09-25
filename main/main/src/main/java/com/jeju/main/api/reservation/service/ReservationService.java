@@ -1,4 +1,4 @@
-package com.jeju.main.domain.reservation.service;
+package com.jeju.main.api.reservation.service;
 
 import com.jeju.main.domain.guesthouse.domain.GuestHouse;
 import com.jeju.main.domain.guesthouse.repository.GuestHouseRepository;

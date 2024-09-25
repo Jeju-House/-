@@ -27,7 +27,7 @@ public class GuestHouseDetailResponse {
                 .region(guestHouse.getRegion())
                 .image(guestHouse.getImage())
                 .promotion(guestHouse.getPromotion())
-                .roomDetailResponses(roomDetailResponse)
+                .roomDetailResponses(roomDetailResponses)
                 .build();
     }
 }

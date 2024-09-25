@@ -27,16 +27,6 @@ public class User {
     private Role role;
     private String gender;
     private String refreshToken;
-    @OneToMany(mappedBy = "user")
-    @Builder.Default
-    private List<Party> partyList = new ArrayList<>();
-
-    @OneToMany(mappedBy = "user")
-    @Builder.Default
-    private List<Reservation> reservationList = new ArrayList<>();
-    @OneToMany(mappedBy = "user")
-    @Builder.Default
-    private List<Review> reviewList = new ArrayList<>();
 
     public static User createUser(String account, String password, String gender, Role role) {
         return User.builder()

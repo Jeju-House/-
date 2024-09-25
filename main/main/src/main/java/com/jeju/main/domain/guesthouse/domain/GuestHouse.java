@@ -1,6 +1,9 @@
 package com.jeju.main.domain.guesthouse.domain;
 
 
+import com.jeju.main.domain.guesthouse.dto.response.GuestHouseResponseDto;
+import com.jeju.main.domain.user.domain.Role;
+import com.jeju.main.domain.user.domain.User;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
@@ -23,13 +26,14 @@ public class GuestHouse {
     private Region region;
     private String image;
     private String promotion;
-    @OneToMany(mappedBy = "guestHouse")  // Update the mappedBy attribute
-    @Builder.Default
-    private List<Party> parties = new ArrayList<>();
 
-    @OneToMany(mappedBy = "guestHouse")  // Update the mappedBy attribute
-    @Builder.Default
-    private List<Review> reviews = new ArrayList<>();
-
+    public static GuestHouse createGuestHouse(GuestHouseResponseDto resource, String url) {
+        return GuestHouse.builder()
+                .name(resource.getName())
+                .region(resource.getRegion())
+                .promotion(resource.getPromotion())
+                .image(url)
+                .build();
+    }
 }
 

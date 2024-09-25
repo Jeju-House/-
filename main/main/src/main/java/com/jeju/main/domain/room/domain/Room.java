@@ -20,12 +20,11 @@ public class Room {
     @Column(name = "room_id")
     private Long id;
     private Long price;
+    //총인원
     private Long wholePerson;
+    //뭐여 이건
     private Long extraPerson;
     @ManyToOne
     @JoinColumn(name = "guest_house_id")
     private GuestHouse guestHouse;
-    @OneToMany(mappedBy = "room")
-    @Builder.Default
-    private List<Reservation> reservationList = new ArrayList<>();
 }

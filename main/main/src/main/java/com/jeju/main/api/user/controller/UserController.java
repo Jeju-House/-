@@ -1,11 +1,11 @@
-package com.jeju.main.domain.user.controller;
+package com.jeju.main.api.user.controller;
 
 
 import com.jeju.main.domain.user.dto.request.SignInRequestDto;
 import com.jeju.main.domain.user.dto.request.SignUpRequestDto;
 import com.jeju.main.domain.user.dto.response.SignInResponseDto;
 import com.jeju.main.domain.user.dto.response.SignUpResponseDto;
-import com.jeju.main.domain.user.service.UserService;
+import com.jeju.main.api.user.service.UserService;
 import com.jeju.main.global.common.SuccessResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
